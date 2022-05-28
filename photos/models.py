@@ -15,6 +15,11 @@ class Location(models.Model):
     def delete_location(self):
         self.delete()
         
+    @classmethod
+    def get_location_id(cls, id):
+        locate = Location.objects.get(pk = id)
+        return locate
+        
 class Category(models.Model):
     photo_category = models.CharField(max_length =30)
 
