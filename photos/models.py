@@ -46,3 +46,21 @@ class Poster(models.Model):
         
     class Meta:
         ordering = ['first_name']
+        
+# class Image(models.Model):
+#     title = models.CharField(max_length =50)
+#     poster = models.ForeignKey(Poster)
+#     description = models.TextField(max_length =100)
+#     image = models.ImageField(upload_to = 'photos/', default='No image')
+#     location = models.ForeignKey(Location)
+#     category = models.ForeignKey(Category)
+#     pub_date = models.DateTimeField(auto_now_add=True, null=True) 
+
+#     def save_image(self):
+#         self.save()
+        
+#     def delete_image(self):
+#         self.delete()
+
+#     def __str__(self):
+#         return self.title
