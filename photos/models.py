@@ -36,6 +36,10 @@ class Category(models.Model):
         self.photo_category = update
         self.save()
         
+    def get_category_id(cls,id):
+        category = Category.object.get(pk = id)
+        return category
+
 class Poster(models.Model):
     first_name = models.CharField(max_length =30)
     last_name = models.CharField(max_length =30)
@@ -52,20 +56,30 @@ class Poster(models.Model):
     class Meta:
         ordering = ['first_name']
         
-# class Image(models.Model):
-#     title = models.CharField(max_length =50)
-#     poster = models.ForeignKey(Poster)
-#     description = models.TextField(max_length =100)
-#     image = models.ImageField(upload_to = 'photos/', default='No image')
-#     location = models.ForeignKey(Location)
-#     category = models.ForeignKey(Category)
-#     pub_date = models.DateTimeField(auto_now_add=True, null=True) 
+class Photo(models.Model):
+    title = models.CharField(max_length =50)
+    poster = models.ForeignKey(Poster, on_delete=models.CASCADE)
+    description = models.TextField(max_length =100)
+    photo = models.ImageField(upload_to = 'photos/', default='No image')
+    location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    pub_date = models.DateTimeField(auto_now_add=True, null=True) 
 
-#     def save_image(self):
-#         self.save()
+    def save_photo(self):
+        self.save()
         
-#     def delete_image(self):
-#         self.delete()
+    def delete_photo(self):
+        self.delete()
 
-#     def __str__(self):
-#         return self.title
+    def __str__(self):
+        return self.title
+
+    @classmethod
+    def get_all_photos(cls):
+        all_photos = Photo.objects.all()
+        return all_photos
+    
+    @classmethod
+    def get_photo_by_id(cls, id):
+        a_photo = Photo.objects.get(id=id)
+        return a_photo    
