@@ -4,10 +4,10 @@ import datetime as dt
 # Create your models here.
 
 class Location(models.Model):
-    photo_location = models.CharField(max_length =30)
+    location = models.CharField(max_length =30)
 
     def __str__(self):
-        return self.photo_location
+        return self.location
     
     def save_location(self):
         self.save()
@@ -21,10 +21,10 @@ class Location(models.Model):
         return locate
         
 class Category(models.Model):
-    photo_category = models.CharField(max_length =30)
+    name = models.CharField(max_length =30)
 
     def __str__(self):
-        return self.photo_category
+        return self.name
     
     def save_category(self):
         self.save()
