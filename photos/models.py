@@ -60,7 +60,7 @@ class Photo(models.Model):
     title = models.CharField(max_length =50)
     poster = models.ForeignKey(Poster, on_delete=models.CASCADE)
     description = models.TextField(max_length =100)
-    photo = models.ImageField(upload_to = 'photos/', default='No image')
+    image = models.ImageField(upload_to = 'photos/', default='No image')
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, null=True) 

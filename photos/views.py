@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse,Http404
 import datetime as dt
-from .models import Location, Poster,Category
+from .models import Location, Poster,Category, Photo
 
 # Create your views here.
 def gallery(request):
-    return render(request,'photos/gallery.html')
+    photos = Photo.objects.all()
+    context = {'photos':photos}
+    return render(request,'photos/gallery.html', context)
 
 def photo(request,photo_id):
     try:
