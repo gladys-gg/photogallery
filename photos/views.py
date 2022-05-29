@@ -6,7 +6,9 @@ from .models import Location, Poster,Category, Photo
 # Create your views here.
 def gallery(request):
     photos = Photo.objects.all()
-    context = {'photos':photos}
+    locations = Location.objects.all()
+    categories = Category.objects.all()
+    context = {'photos':photos, 'categories':categories, 'locations':locations}
     return render(request,'photos/gallery.html', context)
 
 def photo(request,photo_id):
