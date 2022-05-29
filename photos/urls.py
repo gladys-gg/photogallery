@@ -7,6 +7,7 @@ urlpatterns =[
     path('',views.gallery,name='gallery'),
     path('photo/<photo_id>',views.photo,name='photo'),
     path('search/', views.search_results, name='search_results'),
+    path('location/<location_id',views.filter_by_location,name='location')
     
 ]
 if settings.DEBUG:
