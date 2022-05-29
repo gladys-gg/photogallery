@@ -1,11 +1,13 @@
 {% extends 'photos/base.html' %}
 
 {% block content %}
-
+{% for photo in photos %}
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-    {% for photo in photos %}
-    <div class="col">
+    
+    <div class="col-md-4">
+        
     <div class="card">
+        
         <img src="{{photo.image.url}}" class="img-responsive" alt="">
         <div class="card-body">
         <h5 class="card-title">{{photo.title}}</h5>
