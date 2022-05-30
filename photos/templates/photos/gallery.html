@@ -30,10 +30,10 @@
 
                 {% for photo in photos %}
                 <div class="col-md-4">
-                    <div class="card my-2">
-                        <img class="image-thumbail" src="{{photo.image.url}}" alt="Card image cap">
+                    <div class=" my-2">
+                        <img class="image-thumbail" src="{{photo.image.url}}" height="250px" width="280px" alt="Card image cap">
 
-                        <div class="card-body">
+                        <div class="body">
                             <small>Category: {{photo.category.name}}</small>
                         </div>
                         <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
