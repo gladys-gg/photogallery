@@ -83,3 +83,8 @@ class Photo(models.Model):
     def get_photo_by_id(cls, id):
         a_photo = Photo.objects.get(id=id)
         return a_photo    
+    
+    @classmethod
+    def search_by_category(cls,search_term):
+        image = cls.objects.filter(category__name__icontains=search_term)
+        return image
