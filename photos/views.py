@@ -6,8 +6,13 @@ from .models import Location, Poster,Category, Photo
 # Create your views here.
 def gallery(request):
     photos = Photo.objects.all()
-    locations = Location.objects.all()
     categories = Category.objects.all()
+    location = request.GET.get('location')
+    if location ==None:
+        photos = Photo.objects.all()
+    else:
+        photos = Photo.objects.filter(location__location=location)
+    locations = Location.objects.all()
     context = {'photos':photos, 'categories':categories, 'locations':locations}
     return render(request,'photos/gallery.html', context)
 
@@ -17,12 +22,6 @@ def photo(request,photo_id):
     except:
         raise Http404()
     return render(request,'photos/photo.html',{'photo':photo})
-
-def filter_by_location(request,location_id):
-    
-    #filters by location
-    photos = Photo.filter_by_location(id=location_id)
-    return render(request,'location.html',{'photos':photo})
 
 def search_results(request):
 
