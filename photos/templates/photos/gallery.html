@@ -2,39 +2,74 @@
 
 {% block content %}
 
+    <section id="header" class="header-one">
+        <img src="../../../static/image/header-bg.jpg" style="height: 80vh !important; margin-top:-5em; width:100% ;"  alt="">
+        <div class="container ">
+            <div class="row" >
+                
+                <div class="col-sm-4 col-md-4 " style="margin-top: -15em; margin-left: 10%;">
+
+                    <form class="navbar-form ms-5" role="search" action="{% url 'search_results' %}"style="margin-left:100% !important; width:100%;">
+            
+                    <div class="input-group ">
+                        <input type="text" class="form-control" placeholder="Search Photo By Category" name="photo">
+                        <div class="input-group-btn">
+                        <button class="btn btn-primary" type="submit"> Search </button>
+                        </div>
+                    </div>
+            
+                    </form>
+                </div>
+    
+
+            </div>
+        </div>		
+    </section>
+
+    <div class="container">
+        <h3 class="text-center mt-3">Locations</h3>
+        <div>
+        <ul class="menu" style="justify-content: space-between;align-items: right;
+        width: 100%;display: flex;">
+            <li style="list-style: none;">
+                <a href="{% url 'gallery' %}" style="text-decoration: none;
+                color: white;
+                background-color: black;
+                display: inline-block;
+                padding: 10px 30px;
+                list-style: none;
+                position: relative;">All</a>
+            </li>
+            {% for location in locations %}
+            <li style="list-style: none;">
+                <a href="{% url 'gallery' %}?location={{location.location}}" style="text-decoration: none;
+                color: white;
+                background-color: black;
+                display: inline-block;
+                padding: 10px 30px;
+                list-style: none;
+                position: relative;">
+                    {{location.location}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+
+
 <div class="container">
     <div class="row">
-        <div class="col-md-3">
-            <div class="card mt-3">
-                <div class="card-header">
-                    Locations
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <a href="{% url 'gallery' %}">All</a>
-                    </li>
-                    {% for location in locations %}
-                    <li class=" list-group-item">
-                        <a href="{% url 'gallery' %}?location={{location.location}}">
-                            {{location.location}}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-
-        </div>
-
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="row">
 
                 {% for photo in photos %}
-                <div class="col-md-4">
-                    <div class=" my-2">
-                        <img class="image-thumbail" src="{{photo.image.url}}" height="250px" width="280px" alt="Card image cap">
+                <div class="col-md-3">
+                    <div class="card my-2">
+                        <img class="image-thumbail" src="{{photo.image.url}}" height="250px" width="260px" alt="Card image cap">
 
-                        <div class="body">
-                            <small>Category: {{photo.category.name}}</small>
+                        <div class="card-body">
+                            <small>Category : {{photo.category.name}}</small>
                         </div>
                         <a href="{% url 'photo' photo.id %}" class="btn btn-outline-dark btn-sm m-1">View</a>
                     </div>
