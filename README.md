@@ -20,9 +20,9 @@
 ****
 | Behaviour | Input | Output |
 | :---------------- | :---------------: | ------------------: |
-| Load the page | **On page load** | From home page, navigate to explore page to explore images|
-| When you click on an Image or hover, it takes you to single Image page| You can copy the image link by clicking on copy link button.|
-| You can click image to go back to explore page| You can search by category | Search results displays the number of returned results for that particular search| 
+| Load the page | **On page load** | From home page, navigate to explore images|
+| When you click on a button under the image, it takes you to single Image page| You can copy the image link by clicking on copy link button.|
+| You can click image to go back to gallery page| You can search by category | Search results displays the number of returned results for that particular search| 
 
 **Setup/Installation Requirements** 
 ****
