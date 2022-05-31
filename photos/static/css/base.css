@@ -1,6 +1,6 @@
 
 body {
-    background: rgb(201, 198, 198);
+    background: rgb(247, 241, 241);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-style: italic;
     font-weight: 300;
@@ -25,4 +25,11 @@ font-size: 100%;
 .loc-list:hover{
     background-color: black;
     color: white;
+}
+.loc-list{
+    width: 65%;
+    position: relative;
+    padding: 10px 30px;
+    justify-content: space-between;
+    align-items: right;
 }
