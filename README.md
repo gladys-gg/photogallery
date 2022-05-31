@@ -5,10 +5,8 @@
 ****
 **Gallery** *Is a gallery web application created using Django.The web application has a collection of images from different categories and locations... As the site admin, you can login, to your account and upload images, categorize them differently, also add their location etc.* </br> 
 
-**Author:***[Atieno Obwanda](https://github.com/AtienoObwanda)* 
+**Author:***[Gladys Mwangi](https://github.com/gladys-gg)* 
 ****
-**Moodboards** *for your eyes!*
-
 
 **User Story** <br/>
 ****
@@ -37,7 +35,7 @@ git clone git@github.com:gladys-gg/gallery.git
 *Once the program has been cloned, run this on your terminal* <br />
 
 ```
-cd artSpace
+cd gallery
 ```
 
 <br />
