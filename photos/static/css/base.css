@@ -1,0 +1,28 @@
+
+body {
+    background: rgb(201, 198, 198);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-style: italic;
+    font-weight: 300;
+}
+/*
+html,body {
+width: 100%;
+overflow-x: hidden;
+}
+
+html {
+font-size: 100%;
+} */
+
+/* .header-one {
+    background: url('../image/header-bg.jpg') no-repeat;
+    height: 60vh !important;
+    min-height: 520px;
+    padding-top: 150px !important;
+} */
+
+.loc-list:hover{
+    background-color: black;
+    color: white;
+}
