@@ -53,6 +53,52 @@ class CategoryTestClass(TestCase):
         self.nature.save_category()
         categories = Category.objects.all()
         self.assertTrue(len(categories)>0)
+        
+class ImageTest(TestCase):
+    def setUp(self):
+        self.Food = Category(name='Nature')
+        self.Food.save_category()
+
+        self.new_location = Location(name='Mombasa')
+        self.new_location.save()
+
+        self.new_tag = Tags(name = 'testing')
+        self.new_tag.save()
+
+        self.new_image=Image(image_name='nature',image_description='nature')
+        self.new_image.save_image() 
+
+        self.new_image.Category.add(self.new_category)
+        self.new_image.Location.add(self.new_location)
+        self.new_image.Tags.add(self.new_tag)
+
+        def tearDown(self):
+            Image.objects.all().delete()
+            Category.objects.all().delete()
+            Location.objects.all().delete()
+            Tags.objects.all().delete()
+
+        def test_deleteImage(self):
+            
+            self.new_image.deleteImage()
+            image = Image.objects.all()
+            self.assertEqual(len(image),0 
+
+
+        def test_get_all_photos(self):
+            all_photos = Photo.get_all_photos()
+            self.assertTrue(len(all_photos)>0)
+        
+        def test_get_photo_by_id(self):
+            test_id=1
+            a_photo = Image.objects.filter(test_id)
+            self.assertTrue(len(a_photo)>0)
+
+
+        def search_by_category(self):
+            image = cls.objects.filter(category__name__icontains=search_term)
+            return image
+            self.assertTrue(len(search_term)==0)
     
 
 
