@@ -28,14 +28,14 @@
 ****
 *From your terminal:* <br />
 ```py
-git clone git@github.com:gladys-gg/gallery.git
+git clone git@github.com:gladys-gg/photogallery.git
 ```
 <br />
 
 *Once the program has been cloned, run this on your terminal* <br />
 
 ```
-cd gallery
+cd photogallery
 ```
 
 <br />
