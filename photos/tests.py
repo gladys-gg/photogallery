@@ -18,24 +18,7 @@ class PosterTestClass(TestCase):
         self.gaby.save_poster()
         posters = Poster.objects.all()
         self.assertTrue(len(posters) > 0) 
-        
-    def test_delete_method(self):
-        self.gaby.save_poster()
-        self.gaby.delete_poster()
-        posters = Poster.objects.all()
-        self.assertTrue(len(posters) == 0) 
-        
-    def test_display_method(self):
-        self.gaby.save_poster()
-        self.gaby.display_posters()
-        poster = Poster.objects.all()
-        self.assertTrue(len(posters) > 0) 
-        
-    def test_update_method(self):
-        self.gaby.save_poster()
-        new_poster = Poster.objects.filter(first_name="Gaby").update(first_name="Ryan")
-        poster=Poster.objects.get(first_name="Ryan")
-        self.assertTrue(posters.first_name,"Ryan")           
+
 
 class LocationTestClass(TestCase):
     def setUp(self):
@@ -56,7 +39,7 @@ class LocationTestClass(TestCase):
         
 class CategoryTestClass(TestCase):
     def setUp(self):
-        self.nature = Category(category='Nature')
+        self.nature = Category(name='Nature')
         self.nature.save_category()
 
     def test_instance(self):
@@ -64,6 +47,12 @@ class CategoryTestClass(TestCase):
     
     def tearDown(self):
         self.nature.delete_category()
+
+
+    def test_save_category(self):
+        self.nature.save_category()
+        categories = Category.objects.all()
+        self.assertTrue(len(categories)>0)
     
 
 
